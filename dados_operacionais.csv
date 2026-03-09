@@ -1,0 +1,8 @@
+id_voo,data_voo,nome_tripulante,status_voo,consumo_combustivel_kg,aeroporto_origem
+101,2026-03-01,TIAGO SILVA,CONCLUIDO,5200,GRU
+102,01/03/2026, ana souza ,atrasado,4800,CGH
+103,2026-03-02,MARCOS OLIVEIRA,CANCELADO,0,BSB
+104,2026-03-02,tiago silva,Concluido,5150,GRU
+105,,CARLA DIAS,CONCLUIDO,4900,GIG
+106,2026-03-03,ANA SOUZA,ATRASADO,6000,SSA
+107,2026-03-03,mario jorge,concluido,5300,GRU
