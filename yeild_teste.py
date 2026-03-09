@@ -1,17 +1,18 @@
-import pandas as pd
-import csv
+import pandas as pd, csv
 from datetime import datetime
 
 path = r"D:\Testes Python 2026\dados_operacionais.csv"
 
 dados_csv = pd.read_csv(path)
 
+# leitura do arquivo
 def extrair_dados_csv(caminho):
     with open(caminho, mode='r', encoding='utf-8') as arquivo:
         leitor = csv.DictReader(arquivo)
         for linha in leitor:
             yield linha
 
+# transformação dos dados
 def transformar_dados(dados):
     for linha in dados:
         linha['nome_tripulante'] = linha['nome_tripulante'].strip().upper()
@@ -19,8 +20,7 @@ def transformar_dados(dados):
         linha['status_voo'] = linha['status_voo'].strip().upper()
         
         yield linha
-        
-        
+               
 def transforma_date(dados):
     for linha in dados:
         data_bruta = linha['data_voo']
@@ -44,12 +44,12 @@ def transforma_date(dados):
         
         yield linha
 
+# pipeline dos processos anteriores
 def processamento_final():
     dados = extrair_dados_csv(path)
     dados = transformar_dados(dados)
     dados = transforma_date(dados)    
     return dados
-
 
 colunas = ['id_voo', 'data_voo', 'nome_tripulante', 'status_voo', 'consumo_combustivel_kg', 'aeroporto_origem']
 
